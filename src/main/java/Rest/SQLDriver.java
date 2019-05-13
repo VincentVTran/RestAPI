@@ -13,7 +13,7 @@ public class SQLDriver {
         connect = DriverManager.getConnection(url, user, password);
     }
 
-    public  void testAdd() throws SQLException{
+    public  void grabData() throws SQLException{
         Statement invoke = connect.createStatement();
         ResultSet recieve_data= invoke.executeQuery("SELECT * FROM Test");
         while(recieve_data.next()){

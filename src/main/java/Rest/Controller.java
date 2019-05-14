@@ -11,21 +11,19 @@ import java.sql.SQLException;
 
 @RestController
 public class Controller {
-     /*@RequestMapping("/localsave")
-    public DataObject Local_Save(){
-        return null;
+
+    @RequestMapping("/sendData")
+    public void saveData(@RequestParam(value = "name", defaultValue = "Null")String name,@RequestParam(value = "id", defaultValue = "0")String ID){
+        System.out.println(name + " " + ID);
     }
-    @RequestMapping("/sqlsave")
-    public void Save_Data(@RequestParam(value = "name", defaultValue = "Null")String name,@RequestParam(value = "ID", defaultValue = "0")int ID){
-    }
-*/
-    @RequestMapping("/test")
+
+    /* @RequestMapping("/test")
     public String test() throws SQLException {
         SQLDriver connection = new SQLDriver();
         connection.setUp();
         connection.grabData();
         return "Hello";
-    }
+    } */
 
     @RequestMapping("/returnArray") //Request link extension
     @CrossOrigin(origins="http://localhost:4200") //Allows access across ports
@@ -33,5 +31,12 @@ public class Controller {
         System.out.println("Worked");
         String[] test = new String[]{"Hello","Test","Four"}; //Returns array on access
         return test;
+    }
+
+    @RequestMapping("/returnObject")
+    @CrossOrigin(origins="http://localhost:4200")
+    public DataObject getDataObject(){
+        DataObject object = new DataObject("14","Test");
+        return object;
     }
 }

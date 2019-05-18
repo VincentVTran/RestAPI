@@ -12,10 +12,15 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(){
-    this.data.getDataObject().subscribe((any)=>{ 
+  getOnClick(){
+    this.data.getObject().subscribe((any)=>{ 
       console.log(any);
     });
+  }
+
+  sendOnClick(){
+    this.data.sendObject();
+    console.log("Worked");
   }
 
 }
